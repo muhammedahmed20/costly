@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.avatar-upload {
+  border: 2px dotted;
+  cursor: pointer;
+}
+
+.img-input {
+  background-color: #0d6dfd17;
+}
+
+.card {
+  box-shadow: 0px 0px 10px #0d6dfd4d;
+  border-color: #0d6dfd17;
+}
+
+.active {
+  background-color: #fff;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  color: #0d6efd !important;
+}
+
+#avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #9b9b9b6b;
+  border: 1px dotted #0d6efd;
+
+  @media screen and (max-width: 991px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+#name {
+  font-size: 14px;
+  @media screen and (max-width: 991px) {
+    font-size: 10px;
+  }
+}
+#balance {
+  font-size: 10px;
+  @media screen and (max-width: 991px) {
+    font-size: 6px;
+  }
+}
+
+.myCard {
+  &:hover {
+    box-shadow: 0 0 10px #cacaca81 !important;
+  }
+
+  h5 {
+    font-size: 15px;
+    @media screen and (max-width: 991px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+
+  @media screen and (max-width: 991px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-box2 {
+    width: 30px;
+    height: 30px;
+
+    @media screen and (max-width: 991px) {
+      width: 20px;
+      height: 20px;
+    }
+
+    i {
+      font-size: 12px;
+
+      @media screen and (max-width: 991px) {
+        font-size: 8px;
+      }
+    }
+  }
+}
+
+#openModal {
+  width: 20px;
+  height: 20px;
+
+  i {
+      font-size: 18px;
+
+      @media screen and (max-width: 991px) {
+        font-size: 8px;
+      }
+    }
+}
+
+.save{
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.288);
+}
+
+.save-card{
+  background-color: #eefaf5;
+}
