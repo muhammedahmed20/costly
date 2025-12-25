@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,9 +33,7 @@
   </head>
 
   <body class="d-flex">
-    <aside
-      class="col-2 d-lg-flex d-none flex-column bg-secondary-subtle"
-    >
+    <aside class="col-2 d-lg-flex d-none flex-column bg-secondary-subtle">
       <div class="col-12 d-flex justify-content-center p-3 mb-4">
         <img
           id="logo"
@@ -53,7 +51,7 @@
           <i class="bi bi-columns-gap"></i>
           <h6 class="mb-0" style="font-size: 15px">Dashboard</h6>
         </div>
-        <div
+        <!-- <div
           type="button"
           class="d-flex align-items-center gap-3 mb-3 py-2 ps-3"
         >
@@ -94,7 +92,7 @@
           <i class="bi bi-gear fs-5"></i>
           <h6 class="mb-0" style="font-size: 15px">Settings</h6>
         </div>
-      </div>
+      </div> -->
     </aside>
 
     <main class="col-12 col-lg-10 p-2">
@@ -117,9 +115,7 @@
             <div id="avatar" class="rounded-circle me-2"></div>
             <div class="info">
               <h6 id="name" class="mb-0 fw-bold">Mohamed Ahmed</h6>
-              <p id="headBalance" class="mb-0 text-success fw-medium">
-              
-              </p>
+              <p id="headBalance" class="mb-0 text-success fw-medium"></p>
             </div>
           </div>
         </header>
@@ -173,7 +169,7 @@
                 </div>
                 <h5 class="mb-0 text-secondary">Expenses</h5>
               </div>
-              <h2 id="expensesBalance" class="mb-0 text-danger">$ 15,000</h2>
+              <h2 id="expensesBalance" class="mb-0 text-danger">0</h2>
             </div>
           </div>
           <div class="col-lg-4 col-6">
@@ -199,7 +195,6 @@
         </div>
 
         <div class="row g-3 mb-5">
-          
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -212,7 +207,11 @@
                   <i class="fa-solid fa-utensils me-2"></i>
                   <h5 class="mb-0">Food</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -223,7 +222,6 @@
             </div>
           </div>
 
-          
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -236,7 +234,11 @@
                   <i class="fa-solid fa-basket-shopping me-2"></i>
                   <h5 class="mb-0">Groceries</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -247,7 +249,6 @@
             </div>
           </div>
 
-        
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -260,7 +261,11 @@
                   <i class="fa-solid fa-cart-shopping me-2"></i>
                   <h5 class="mb-0">Shopping</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -271,7 +276,6 @@
             </div>
           </div>
 
-          
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -284,7 +288,11 @@
                   <i class="fa-solid fa-bus me-2"></i>
                   <h5 class="mb-0">Transport</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -295,7 +303,6 @@
             </div>
           </div>
 
-          
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -308,7 +315,11 @@
                   <i class="fa-solid fa-masks-theater me-2"></i>
                   <h5 class="mb-0">Leisure</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -319,7 +330,6 @@
             </div>
           </div>
 
-         
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -332,7 +342,11 @@
                   <i class="fa-solid fa-plug me-2"></i>
                   <h5 class="mb-0">Utilities</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -343,7 +357,6 @@
             </div>
           </div>
 
-          
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -356,7 +369,11 @@
                   <i class="fa-solid fa-heart-pulse me-2"></i>
                   <h5 class="mb-0">Health</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -367,7 +384,6 @@
             </div>
           </div>
 
-          
           <div class="col-lg-3 col-md-4 col-6">
             <div
               class="bg-body-tertiary rounded-3 p-3 shadow-sm category-card"
@@ -380,7 +396,11 @@
                   <i class="fa-solid fa-puzzle-piece me-2"></i>
                   <h5 class="mb-0">Other</h5>
                 </div>
-                <button class="btn btn-sm bg-secondary-subtle add-expense-btn" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                <button
+                  class="btn btn-sm bg-secondary-subtle add-expense-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#expenseModal"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -392,17 +412,98 @@
           </div>
         </div>
 
+        <section class="row g-3">
+          <div class="col-lg-6 col-12">
+            <section class="save col-12 rounded-4 bg-body-tertiary mb-5">
+              <div
+                class="col-12 bg-success rounded-top-4 p-3 d-flex justify-content-between align-items-center"
+              >
+                <h4 class="mb-0 text-white">Savings</h4>
+                <h4 id="totalSavings" class="text-white mb-0"></h4>
+              </div>
+              <div class="col-12 d-flex p-3 mb-3">
+                <div class="col-9">
+                  <input
+                    id="inputSavings"
+                    type="text"
+                    class="p-2 rounded-end-0 form-control"
+                    placeholder="Enter your saving amount"
+                  />
+                </div>
+                <button
+                  id="addSavings"
+                  class="col-3 btn btn-success rounded-start-0"
+                >
+                  Add Saving
+                </button>
+              </div>
+              <div id="savingsList" class="col-12 p-3"></div>
+            </section>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div
+              class="goals col-12 bg-body-tertiary border border-info-subtle rounded-4"
+            >
+              <div
+                class="col-12 bg-info rounded-top-4 p-3 d-flex justify-content-between align-items-center"
+              >
+                <h4 class="mb-0 text-white">Goals</h4>
+                <button
+                  class="btn btn-outline-light"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addGoalModal"
+                >
+                  Add Goal
+                </button>
+              </div>
+              <div id="goalDiv" class="row g-3 p-3">
+                <div class="col-lg-6 col-12"></div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <section class="save col-12 rounded-4 bg-body-secondary mb-5 ">
-          <div class="col-12 bg-success rounded-top-4 p-3 d-flex justify-content-between align-items-center">
-            <h4 class="mb-0 text-white">Savings</h4>
-            <h4 id="totalSavings" class="text-white mb-0"></h4>
+        <section class="expenses col-12 rounded-4 bg-body-tertiary mb-5">
+          <div
+            class="col-12 bg-dark rounded-top-4 p-3 d-flex justify-content-between align-items-center"
+          >
+            <h4 class="mb-0 text-white">Transactions</h4>
           </div>
-          <div class="col-12 d-flex p-3 mb-3">
-            <input id="inputSavings" type="text" class="col-10 p-2 rounded-start-2 " placeholder="Enter your saving amount">
-            <button id="addSavings" class="col-2 btn btn-success rounded-start-0">Add Saving</button>
-          </div>
-          <div id="savingsList" class="col-12 p-3">
+          <div id="transactionsList" class="col-12 p-3">
+            <!-- <div
+              class="bg-success-subtle p-3 rounded-3 d-flex align-items-center mb-3 justify-content-between"
+            >
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-circle-up text-success fs-4 me-4"></i>
+                <div>
+                  <h5 class="mb-0">income salary 15000</h5>
+                  <p class="mb-0 fw-light" style="font-size: 12px">
+                    the note show here
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p class="text-secondary mb-0 text-center" style="font-size: 10px;">25/12/2025</p>
+                <p class="text-secondary mb-0 text-center" style="font-size: 10px;">5:19 pm</p>
+              </div>
+            </div> -->
+            <!-- <div
+              class="bg-danger-subtle p-3 rounded-3 d-flex align-items-center mb-3 justify-content-between"
+            >
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-circle-down text-danger fs-4 me-4"></i>
+                <div>
+                  <h5 class="mb-0">food burger 150</h5>
+                  <p class="mb-0 fw-light" style="font-size: 12px">
+                    the note show here
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p class="text-secondary mb-0 text-center" style="font-size: 10px;">25/12/2025</p>
+                <p class="text-secondary mb-0 text-center" style="font-size: 10px;">5:19 pm</p>
+              </div>
+            </div> -->
           </div>
         </section>
       </div>
@@ -463,6 +564,50 @@
           <button id="saveExpenseBtn" class="btn btn-primary w-100">
             Save
           </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addGoalModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content p-3">
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Goal</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <input
+                type="text"
+                id="goalName"
+                class="form-control"
+                placeholder="Goal Name"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="number"
+                id="goalTarget"
+                class="form-control"
+                placeholder="Target Amount (L.E)"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              id="addGoalBtn"
+              class="btn btn-primary w-100"
+              data-bs-dismiss="modal"
+            >
+              Add Goal
+            </button>
+          </div>
         </div>
       </div>
     </div>
