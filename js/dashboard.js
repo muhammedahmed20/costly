@@ -1,5 +1,3 @@
-
-
 const storedData = localStorage.getItem("appData");
 const appData = storedData ? JSON.parse(storedData) : {};
 
@@ -84,7 +82,6 @@ saveExpenseBtn.addEventListener("click", function () {
   updateBalance();
   getTotalExpenses();
   updateTransactionsUI();
-
 });
 
 function updateCategoryTotal(category) {
@@ -160,9 +157,8 @@ addSavings.addEventListener("click", function () {
 
   appData.savings.total += value;
   localStorage.setItem("appData", JSON.stringify(appData));
-  updateSavingsUI()
+  updateSavingsUI();
   updateTransactionsUI();
-
 });
 
 function updateSavingsUI() {
@@ -201,7 +197,7 @@ function updateSavingsUI() {
   totalElem.textContent = `Total: L.E ${appData.savings.total}`;
   updateBalance();
   updateTransactionsUI();
-
+  updateGoalsUI();
 }
 
 const addGoalBtn = document.getElementById("addGoalBtn");
@@ -228,7 +224,7 @@ addGoalBtn.addEventListener("click", function () {
     createdAt: new Date().toISOString(),
   });
   localStorage.setItem("appData", JSON.stringify(appData));
-   updateGoalsUI();
+  updateGoalsUI();
 });
 
 let updateGoalsUI = () => {
@@ -260,6 +256,8 @@ let updateGoalsUI = () => {
 
     goalsContainer.appendChild(goalCard);
   });
+
+  updateSavingsUI();
 };
 
 function updateTransactionsUI() {
@@ -269,7 +267,15 @@ function updateTransactionsUI() {
   // 1️⃣ أولاً الـ Income
   if (appData.income) {
     const incomeDiv = document.createElement("div");
-    incomeDiv.classList.add("bg-success-subtle", "p-3", "rounded-3", "d-flex", "align-items-center", "mb-3", "justify-content-between");
+    incomeDiv.classList.add(
+      "bg-success-subtle",
+      "p-3",
+      "rounded-3",
+      "d-flex",
+      "align-items-center",
+      "mb-3",
+      "justify-content-between"
+    );
     incomeDiv.innerHTML = `
       <div class="d-flex align-items-center">
         <i class="fa-solid fa-circle-up text-success fs-4 me-4"></i>
@@ -290,7 +296,15 @@ function updateTransactionsUI() {
   for (let category in appData.expenses) {
     appData.expenses[category].forEach((exp) => {
       const expDiv = document.createElement("div");
-      expDiv.classList.add("bg-danger-subtle", "p-3", "rounded-3", "d-flex", "align-items-center", "mb-3", "justify-content-between");
+      expDiv.classList.add(
+        "bg-danger-subtle",
+        "p-3",
+        "rounded-3",
+        "d-flex",
+        "align-items-center",
+        "mb-3",
+        "justify-content-between"
+      );
       expDiv.innerHTML = `
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-circle-down text-danger fs-4 me-4"></i>
@@ -300,16 +314,18 @@ function updateTransactionsUI() {
           </div>
         </div>
         <div>
-          <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date(exp.date).toLocaleDateString()}</p>
-          <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date(exp.date).toLocaleTimeString()}</p>
+          <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date(
+            exp.date
+          ).toLocaleDateString()}</p>
+          <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date(
+            exp.date
+          ).toLocaleTimeString()}</p>
         </div>
       `;
       transactionsList.appendChild(expDiv);
     });
   }
 }
-
-
 
 window.addEventListener("load", function () {
   for (let category in appData.expenses) {
@@ -321,5 +337,4 @@ window.addEventListener("load", function () {
   updateSavingsUI();
   updateGoalsUI();
   updateTransactionsUI();
-
 });
