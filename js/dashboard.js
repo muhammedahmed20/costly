@@ -165,6 +165,7 @@ addSavings.addEventListener("click", function () {
   localStorage.setItem("appData", JSON.stringify(appData));
   updateSavingsUI();
   updateTransactionsUI();
+  updateGoalsUI();
 
   inputSavings.value = "";
 });
@@ -205,7 +206,6 @@ function updateSavingsUI() {
   totalElem.textContent = `Total: L.E ${appData.savings.total}`;
   updateBalance();
   updateTransactionsUI();
-  updateGoalsUI();
 }
 
 const addGoalBtn = document.getElementById("addGoalBtn");
