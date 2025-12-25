@@ -35,6 +35,8 @@ saveIncome.addEventListener("click", function () {
     mainBalance.innerHTML = "";
     mainBalance.innerHTML = appData.income;
     openModal.classList.add("d-none");
+
+    incomeInput.value = "";
   } else {
     Swal.fire("Error", "Enter valid amount", "error");
     return;
@@ -82,6 +84,10 @@ saveExpenseBtn.addEventListener("click", function () {
   updateBalance();
   getTotalExpenses();
   updateTransactionsUI();
+
+  expenseTitle.value = "";
+  expenseAmount.value = "";
+  expenseNote.value = "";
 });
 
 function updateCategoryTotal(category) {
@@ -159,6 +165,8 @@ addSavings.addEventListener("click", function () {
   localStorage.setItem("appData", JSON.stringify(appData));
   updateSavingsUI();
   updateTransactionsUI();
+
+  inputSavings.value = "";
 });
 
 function updateSavingsUI() {
