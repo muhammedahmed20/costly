@@ -1,3 +1,5 @@
+
+
 const storedData = localStorage.getItem("appData");
 const appData = storedData ? JSON.parse(storedData) : {};
 
@@ -81,6 +83,8 @@ saveExpenseBtn.addEventListener("click", function () {
   updateCategoryTotal(currentCategory);
   updateBalance();
   getTotalExpenses();
+  updateTransactionsUI();
+
 });
 
 function updateCategoryTotal(category) {
@@ -156,7 +160,8 @@ addSavings.addEventListener("click", function () {
 
   appData.savings.total += value;
   localStorage.setItem("appData", JSON.stringify(appData));
-
+  updateSavingsUI()
+  updateTransactionsUI();
 
 });
 
@@ -166,9 +171,17 @@ function updateSavingsUI() {
 
   savingsList.innerHTML = ""; // امسح القديم
 
-  appData.savings.history.forEach(s => {
+  appData.savings.history.forEach((s) => {
     const li = document.createElement("div");
-    li.classList.add("d-flex","p-3","rounded-4","border","border-success-subtle","mb-2", "save-card");
+    li.classList.add(
+      "d-flex",
+      "p-3",
+      "rounded-4",
+      "border",
+      "border-success-subtle",
+      "mb-2",
+      "save-card"
+    );
     li.innerHTML += `
       <div style="width:60px; height:60px;" class="save-card  rounded-circle d-flex align-items-center justify-content-center me-3">
         <div style="width:40px; height:40px;" class="bg-success rounded-circle d-flex align-items-center justify-content-center">
@@ -177,14 +190,125 @@ function updateSavingsUI() {
       </div>
       <div class="col-11 d-flex justify-content-between align-items-center">
         <h3 class="mb-0">${s.amount} L.E</h3>
-        <p class="text-center mb-0 text-secondary">${new Date(s.date).toLocaleDateString()}<br>${new Date(s.date).toLocaleTimeString()}</p>
+        <p class="text-center mb-0 text-secondary">${new Date(
+          s.date
+        ).toLocaleDateString()}<br>${new Date(s.date).toLocaleTimeString()}</p>
       </div>
     `;
     savingsList.appendChild(li);
   });
 
   totalElem.textContent = `Total: L.E ${appData.savings.total}`;
+  updateBalance();
+  updateTransactionsUI();
+
 }
+
+const addGoalBtn = document.getElementById("addGoalBtn");
+const goalName = document.getElementById("goalName");
+const goalTarget = document.getElementById("goalTarget");
+
+addGoalBtn.addEventListener("click", function () {
+  const nameValue = goalName.value.trim();
+  const targetValue = +goalTarget.value.trim();
+
+  if (!nameValue) {
+    Swal.fire("Warning", "Please enter a goal name", "warning");
+    return;
+  }
+
+  if (!targetValue || targetValue <= 0) {
+    Swal.fire("Warning", "Please enter a valid target amount", "warning");
+    return;
+  }
+
+  appData.goals.push({
+    name: nameValue,
+    target: targetValue,
+    createdAt: new Date().toISOString(),
+  });
+  localStorage.setItem("appData", JSON.stringify(appData));
+   updateGoalsUI();
+});
+
+let updateGoalsUI = () => {
+  const goalsContainer = document.getElementById("goalDiv");
+  goalsContainer.innerHTML = "";
+
+  appData.goals.forEach((goal) => {
+    const progressPercent = Math.min(
+      (appData.savings.total / goal.target) * 100,
+      100
+    );
+
+    const goalCard = document.createElement("div");
+    goalCard.classList.add("col-lg-6", "col-12");
+    goalCard.innerHTML = `
+      <div class="rounded-4 p-3 shadow-sm" style="background-color: rgba(187, 236, 255, 0.226);">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="mb-0 fw-bold">${goal.name}</h6>
+        </div>
+        <div class="progress mb-2" style="height: 8px">
+          <div class="progress-bar bg-info" style="width: ${progressPercent}%"></div>
+        </div>
+        <div class="d-flex justify-content-between small text-secondary mb-3">
+          <span>Saved: ${appData.savings.total} L.E</span>
+          <span>Target: ${goal.target} L.E</span>
+        </div>
+      </div>
+    `;
+
+    goalsContainer.appendChild(goalCard);
+  });
+};
+
+function updateTransactionsUI() {
+  const transactionsList = document.getElementById("transactionsList");
+  transactionsList.innerHTML = ""; // نمسح القديم
+
+  // 1️⃣ أولاً الـ Income
+  if (appData.income) {
+    const incomeDiv = document.createElement("div");
+    incomeDiv.classList.add("bg-success-subtle", "p-3", "rounded-3", "d-flex", "align-items-center", "mb-3", "justify-content-between");
+    incomeDiv.innerHTML = `
+      <div class="d-flex align-items-center">
+        <i class="fa-solid fa-circle-up text-success fs-4 me-4"></i>
+        <div>
+          <h5 class="mb-0">Income: L.E ${appData.income}</h5>
+          <p class="mb-0 fw-light" style="font-size: 12px">Added amount</p>
+        </div>
+      </div>
+      <div>
+        <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date().toLocaleDateString()}</p>
+        <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date().toLocaleTimeString()}</p>
+      </div>
+    `;
+    transactionsList.appendChild(incomeDiv);
+  }
+
+  // 2️⃣ بعدين الـ Expenses
+  for (let category in appData.expenses) {
+    appData.expenses[category].forEach((exp) => {
+      const expDiv = document.createElement("div");
+      expDiv.classList.add("bg-danger-subtle", "p-3", "rounded-3", "d-flex", "align-items-center", "mb-3", "justify-content-between");
+      expDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-circle-down text-danger fs-4 me-4"></i>
+          <div>
+            <h5 class="mb-0">${category}: ${exp.title} L.E ${exp.amount}</h5>
+            <p class="mb-0 fw-light" style="font-size: 12px">${exp.note}</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date(exp.date).toLocaleDateString()}</p>
+          <p class="text-secondary mb-0 text-center" style="font-size: 10px;">${new Date(exp.date).toLocaleTimeString()}</p>
+        </div>
+      `;
+      transactionsList.appendChild(expDiv);
+    });
+  }
+}
+
 
 
 window.addEventListener("load", function () {
@@ -195,4 +319,7 @@ window.addEventListener("load", function () {
   updateBalance();
   getTotalExpenses();
   updateSavingsUI();
+  updateGoalsUI();
+  updateTransactionsUI();
+
 });
